@@ -1,0 +1,16 @@
+# Reemplaza con tu imagen base
+FROM python:3.10-slim
+
+# Instala debugpy (¡Fundamental!)
+RUN pip install debugpy
+
+# Copia tu código
+WORKDIR /app
+COPY app /app
+
+# Exponer el puerto del depurador (ej. 5678)
+EXPOSE 5678 
+
+# Define el comando de inicio para que ejecute debugpy
+CMD ["python", "-m", "debugpy", "--listen", "0.0.0.0:5678", "--wait-for-client", "main.py"]
+# Por ejemplo: CMD python -m debugpy --listen 0.0.0.0:5678 --wait-for-client app.py
