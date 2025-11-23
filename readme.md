@@ -1,0 +1,1 @@
+Proyecto plantilla para ejecutar contenedores en VS Code.
